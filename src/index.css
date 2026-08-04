@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+
+@theme {
+  /* Brand */
+  --color-brand: #1b1b1b;
+  --color-brand-hover: #333333;
+
+  /* Luxury accent */
+  --color-gold: #c5a46d;
+  --color-gold-hover: #b38e4d;
+
+  /* Layout */
+  --color-background: #f8f6f2;
+  --color-card: #ffffff;
+  --color-border: #e7e3dd;
+
+  /* Typography */
+  --color-foreground: #2f2f2f;
+  --color-muted: #757575;
+
+  /* Feedback */
+  --color-success: #2e7d32;
+  --color-warning: #e6a700;
+  --color-danger: #c0392b;
+  --color-info: #2f6fed;
+}F
+
+
+
+body {
+  font-family: "Manrope", sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+h1 {
+  font-family: "Cinzel", serif;
+}
