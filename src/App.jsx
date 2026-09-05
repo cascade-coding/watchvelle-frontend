@@ -1,11 +1,19 @@
 import { Routes, Route, Link } from "react-router";
+import Brand from "./components/icons/Brand";
+import HeaderNav from "./components/shared/HeaderNav";
 
 function Home() {
-  return <h1>🏠 Home Page</h1>;
+  return (
+    <div>
+
+      <h1>🏠 Home Page</h1>
+      <Brand />
+    </div>
+  );
 }
 
 function About() {
-  return <h1>ℹ️ About Page</h1>;
+  return <h1 className="text-3xl">ℹ️ About Page</h1>;
 }
 
 function Services() {
@@ -18,19 +26,23 @@ function Contact() {
 
 function Navigation() {
   return (
-    <nav
-      style={{
-        display: "flex",
-        gap: "20px",
-        padding: "20px",
-        borderBottom: "1px solid #ccc",
-      }}
-    >
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
-      <Link to="/services">Services</Link>
-      <Link to="/contact">Contact</Link>
-    </nav>
+
+      <HeaderNav />
+
+
+    // <nav
+    //   style={{
+    //     display: "flex",
+    //     gap: "20px",
+    //     padding: "20px",
+    //     borderBottom: "1px solid #ccc",
+    //   }}
+    // >
+    //   <Link to="/">Home</Link>
+    //   <Link to="/about">About</Link>
+    //   <Link to="/services">Services</Link>
+    //   <Link to="/contact">Contact</Link>
+    // </nav>
   );
 }
 
