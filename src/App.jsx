@@ -1,6 +1,6 @@
 import { Routes, Route, Link } from "react-router";
 import Brand from "./components/icons/Brand";
-import HeaderNav from "./components/shared/HeaderNav";
+import Header from "./components/shared/Header";
 
 function Home() {
   return (
@@ -13,13 +13,13 @@ function Home() {
 }
 
 function About() {
-  return <h1 className="text-3xl">ℹ️ About Page</h1>;
+  return <h1 className="text-3xl">ℹ️ About Page</h1>; 
 }
 
 function Services() {
   return <h1>🛠️ Services Page</h1>;
 }
-
+ 
 function Contact() {
   return <h1>📞 Contact Page</h1>;
 }
@@ -27,7 +27,7 @@ function Contact() {
 function Navigation() {
   return (
 
-      <HeaderNav />
+      <Header />
 
 
     // <nav
