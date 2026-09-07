@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router";
-import { cn } from "../../lib/utils";
+import { cn } from "../../../../lib/utils";
 
-const NavLinkSecondary = ({
+const NavLinkPrimary = ({
   to = "#",
   children,
   className = "",
@@ -19,7 +19,7 @@ const NavLinkSecondary = ({
         to={to}
         id={id}
         className={cn(
-          "block text-foreground text-base tracking-[0.5px] transition duration-200 hover:text-gold rounded-lg px-3 py-2 hover:bg-gray-50",
+          "text-foreground text-base tracking-[0.5px] transition hover:text-gold",
           isActive && activeClassName,
           className,
         )}
@@ -33,4 +33,4 @@ const NavLinkSecondary = ({
   );
 };
 
-export default NavLinkSecondary;
+export default NavLinkPrimary;

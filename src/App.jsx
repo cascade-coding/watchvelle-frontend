@@ -1,6 +1,6 @@
 import { Routes, Route, Link } from "react-router";
 import Brand from "./components/icons/Brand";
-import Header from "./components/shared/Header";
+import Header from "./components/shared/Layout/Header/Header";
 
 function Home() {
   return (

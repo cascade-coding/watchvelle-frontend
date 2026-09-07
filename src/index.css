@@ -24,6 +24,10 @@
   --color-warning: #e6a700;
   --color-danger: #c0392b;
   --color-info: #2f6fed;
+
+  /* fonts */
+  --font-base: "Manrope", sans-serif;
+  --font-brand: "Cinzel", serif;
 }
 
 
