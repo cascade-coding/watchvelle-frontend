@@ -1,6 +1,12 @@
+import { useNavigate } from "react-router";
+import Button from "../shared/Button";
+import Container from "../shared/Container";
+
 const Hero = () => {
+  let navigate = useNavigate();
+
   return (
-    <div className="relative min-h-125 flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-125 flex justify-center overflow-hidden">
       {/* Background Image */}
       <img
         src="/hero-bg.webp"
@@ -12,17 +18,29 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/46"></div>
 
       {/* Content */}
-      <div className="relative z-10 text-center text-white px-4">
-        <p className="text-sm uppercase tracking-widest mb-4">
+      <Container className="relative z-10 text-white pt-28">
+        <p className="text-base font-bold uppercase tracking-[1.8px] mb-3">
           DISCOVER YOUR NEXT WATCH
         </p>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+
+        <h1 className="text-4xl md:text-5xl tracking-[1.4px] font-brand font-bold uppercase mb-3 -ml-0.5">
           Find the Watch That Fits You.
         </h1>
-        <p className="text-lg md:text-xl text-gray-200">
+
+        <p className="text-lg font-semibold md:text-xl mb-8">
           Every style. Every occasion. Every moment.
         </p>
-      </div>
+
+        <div>
+          <Button
+            onClick={() => {
+              navigate("/watches");
+            }}
+          >
+            Explore Watches
+          </Button>
+        </div>
+      </Container>
     </div>
   );
 };
