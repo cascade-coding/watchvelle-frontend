@@ -19,16 +19,18 @@ const Hero = () => {
 
       {/* Content */}
       <Container className="relative z-10 text-white pt-28">
-        <p className="text-base font-bold uppercase tracking-[1.8px] mb-3">
+        <p className="text-sm md:text-base font-semibold md:font-bold uppercase tracking-[1.8px] mb-3">
           DISCOVER YOUR NEXT WATCH
         </p>
 
-        <h1 className="text-4xl md:text-5xl tracking-[1.4px] font-brand font-bold uppercase mb-3 -ml-0.5">
-          Find the Watch That Fits You.
+        <h1 className="text-3xl sm:text-4xl md:text-5xl tracking-[1.4px] font-brand font-bold uppercase mb-3 -ml-px md:max-w-175 leading-[1.4]">
+          Find the Watch
+          <br className="block sm:hidden" /> That Fits You.
         </h1>
 
-        <p className="text-lg font-semibold md:text-xl mb-8">
-          Every style. Every occasion. Every moment.
+        <p className="text-base font-medium md:font-semibold md:text-lg mb-8 leading-relaxed">
+          Every style. Every occasion. <br className="block sm:hidden" /> Every
+          moment.
         </p>
 
         <div>
