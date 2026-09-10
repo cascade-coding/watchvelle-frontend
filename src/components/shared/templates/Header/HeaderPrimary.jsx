@@ -4,22 +4,29 @@ import Cart from "../../../icons/Cart";
 import NavLinkPrimary from "./NavLinkPrimary";
 import NavLinkSecondary from "./NavLinkSecondary";
 import Container from "../../Container";
+import Bars from "../../../icons/Bars";
 
 const HeaderPrimary = () => {
   return (
     <div className="">
-      <input type="checkbox" id="nav-toggle" className="peer sr-only" />
+      <input type="checkbox" id="sidebar-toggle" className="peer sr-only" />
+
+      <label
+        htmlFor="sidebar-toggle"
+        aria-hidden="true"
+        className="fixed inset-0 z-30 hidden bg-gray-900/50 peer-checked:block md:hidden"
+      ></label>
 
       <header className="">
         <Container className="flex h-19 items-center gap-8">
-          <a className="block text-indigo-600" href="#">
+          <a className="block text-foreground" href="#">
             <span className="sr-only">Home</span>
             <Brand />
           </a>
 
           <div className="flex flex-1 items-center justify-end">
             <nav aria-label="Global" className="hidden md:block">
-              <ul className="flex items-center gap-9.5 text-sm">
+              <ul className="flex items-center gap-9 text-sm">
                 <NavLinkPrimary to="/" isActive>
                   Home
                 </NavLinkPrimary>
@@ -28,73 +35,64 @@ const HeaderPrimary = () => {
 
                 <NavLinkPrimary to="/orders">Orders</NavLinkPrimary>
 
-                <NavLinkPrimary>
+                <NavLinkPrimary to="/cart">
                   <Cart />
                 </NavLinkPrimary>
               </ul>
             </nav>
 
             <div className="flex items-center gap-3">
-              {/* <div className="block md:hidden">
-                <Cart />
-              </div> */}
-
               <label
-                htmlFor="nav-toggle"
-                id="nav-toggle-label"
-                aria-expanded="false"
-                aria-controls="mobile-nav"
-                className="block cursor-pointer rounded-sm p-2.5 text-brand transition peer-focus-visible:ring-2 peer-focus-visible:ring-indigo-600 peer-focus-visible:ring-offset-2 hover:text-gray-600/75 md:hidden"
+                htmlFor="sidebar-toggle"
+                id="sidebar-toggle-label"
+                aria-controls="sidebar-nav"
+                className="block cursor-pointer rounded-sm p-2.5 text-brand transition peer-focus-visible:ring-2 peer-focus-visible:ring-brand peer-focus-visible:ring-offset-2 hover:text-brand/75 md:hidden"
               >
                 <span className="sr-only">Toggle menu</span>
-                <svg
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="size-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
+                <Bars />
               </label>
             </div>
           </div>
         </Container>
       </header>
 
-      <nav
-        id="mobile-nav"
-        aria-label="Global Mobile"
-        className="max-h-0 overflow-hidden border-b border-border bg-white transition-all duration-300 ease-in-out peer-checked:max-h-150 md:hidden"
+      <div
+        id="sidebar-nav"
+        aria-label="Sidebar"
+        className="fixed inset-y-0 left-0 z-40 flex w-full sm:w-80 -translate-x-full flex-col justify-between overflow-y-auto border-r border-border bg-white transition-transform duration-300 peer-checked:translate-x-0 md:hidden"
       >
-        <ul className="space-y-1 px-1.5 py-4 text-sm">
-          <NavLinkSecondary to="/" isActive>Home</NavLinkSecondary>
+        <div className="p-4">
+          <div className="flex items-center justify-between pl-3 pt-4">
+            <a className="block text-foreground" href="#">
+              <span className="sr-only">Home</span>
+              <Brand />
+            </a>
+          </div>
 
-          <NavLinkSecondary to="/watches">Watches</NavLinkSecondary>
+          <nav className="">
+            <ul className="space-y-1 px-1.5 py-4 text-sm">
+              <NavLinkSecondary to="/" isActive>
+                Home
+              </NavLinkSecondary>
 
-          <NavLinkSecondary to="/orders">Orders</NavLinkSecondary>
-        </ul>
+              <NavLinkSecondary to="/watches">Watches</NavLinkSecondary>
 
-        {/* <div className="flex flex-col gap-2 border-t border-gray-100 px-4 py-4">
-          
-          <a
-            href="#"
-            className="rounded-md bg-gray-100 px-5 py-2.5 text-center text-sm font-medium text-indigo-600 transition hover:text-indigo-600/75"
-          >
-            Sign in
-          </a>
+              <NavLinkSecondary to="/orders">Orders</NavLinkSecondary>
+            </ul>
 
-
-        </div> */}
-
-
-      </nav>
+            <div className="pt-6 px-2">
+              <label
+                htmlFor="sidebar-toggle"
+                className="block cursor-pointer rounded-md bg-gray-200 px-5 py-2.5 text-center text-sm font-medium text-foreground transition hover:bg-gray-300"
+                aria-label="Close menu"
+                aria-controls="sidebar-nav"
+              >
+                Close
+              </label>
+            </div>
+          </nav>
+        </div>
+      </div>
     </div>
   );
 };

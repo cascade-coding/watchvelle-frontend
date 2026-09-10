@@ -4,7 +4,7 @@ const Brand = () => {
   return (
     <>
       <svg
-        className="w-28 h-auto sm:w-32 md:w-36 lg:w-40 xl:w-44"
+        className="w-36 h-auto sm:w-40 lg:w-56"
         viewBox="0 0 225 36"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
