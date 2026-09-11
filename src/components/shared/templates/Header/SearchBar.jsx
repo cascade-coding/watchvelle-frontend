@@ -1,7 +1,24 @@
-import React, { useState, useRef, useEffect } from "react";
-import { cn } from "../../../../lib/utils";
+import { useState, useRef, useEffect } from "react";
 
-import SearchIcon from "../../../icons/SearchIcon"
+import SearchIcon from "../../../icons/SearchIcon";
+import Close from "../../../icons/Close";
+
+const SearchForm = ({ inputRef, value, onChange, onSubmit }) => (
+  <form onSubmit={onSubmit} className="w-full md:max-w-100">
+    <div className="flex w-full h-12 px-4 items-center justify-between border-border border rounded-full">
+      <input
+        ref={inputRef}
+        name="search"
+        type="text"
+        placeholder="Omega Seamaster"
+        value={value}
+        onChange={onChange}
+        className="block h-full w-full outline-none placeholder:text-muted text-foreground text-sm"
+      />
+      <SearchIcon />
+    </div>
+  </form>
+);
 
 const SearchBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,33 +53,31 @@ const SearchBar = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // Handle search logic here
     console.log("Searching for:", searchValue);
     setIsOpen(false);
   };
 
+  const handleChange = (e) => setSearchValue(e.target.value);
+
   return (
     <>
-      {/* Desktop Search Bar - Hidden on Mobile */}
-      <div className="hidden md:flex w-full max-w-100 h-12 px-4 items-center justify-between border-border border rounded-full">
-        <input
-          ref={inputRef}
-          name="search"
-          type="text"
-          placeholder="Omega Seamaster"
+      {/* Desktop Search Bar */}
+      <div className="hidden md:block w-full max-w-100">
+        <SearchForm
+          inputRef={inputRef}
           value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
-          className="block h-full w-full outline-none placeholder:text-muted text-foreground text-sm"
+          onChange={handleChange}
+          onSubmit={handleSearch}
         />
-        <button type="submit" onClick={handleSearch}>
-          <SearchIcon />
-        </button>
       </div>
 
-      {/* Mobile Search Icon - Visible on Mobile */}
+      {/* Mobile Search Icon */}
       <button
-        className="md:hidden p-2 hover:bg-gray-100 rounded-full transition-colors"
-        onClick={() => setIsOpen(true)}
+        className="md:hidden p-2 mr-1.5 hover:bg-gray-100 rounded-full transition-colors"
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsOpen(true);
+        }}
         aria-label="Open search"
       >
         <SearchIcon />
@@ -70,38 +85,26 @@ const SearchBar = () => {
 
       {/* Mobile Search Popup */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-start justify-center pt-20 px-4 search-popup">
-          <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-4 animate-in fade-in slide-in-from-top-4 duration-300">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-foreground">Search</h3>
+        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-start justify-center pt-20 px-1">
+          <div className="w-full max-w-md bg-white rounded-lg shadow-2xl p-2 pb-10 animate-in fade-in slide-in-from-top-4 duration-300 search-popup">
+            <div className="flex items-center justify-between mb-8">
+              <h3 className="text-lg font-medium text-foreground">Search</h3>
+
               <button
                 onClick={() => setIsOpen(false)}
                 className="p-1 hover:bg-gray-100 rounded-full transition-colors"
                 aria-label="Close search"
               >
-                Cl 
+                <Close />
               </button>
             </div>
 
-            <form onSubmit={handleSearch} className="flex items-center gap-2">
-              <div className="flex-1 h-12 px-4 flex items-center border-border border rounded-full bg-gray-50">
-                <input
-                  ref={inputRef}
-                  name="search"
-                  type="text"
-                  placeholder="Omega Seamaster"
-                  value={searchValue}
-                  onChange={(e) => setSearchValue(e.target.value)}
-                  className="block h-full w-full outline-none placeholder:text-muted text-foreground text-sm bg-transparent"
-                />
-              </div>
-              <button
-                type="submit"
-                className="h-12 px-6 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-colors"
-              >
-                Search
-              </button>
-            </form>
+            <SearchForm
+              inputRef={inputRef}
+              value={searchValue}
+              onChange={handleChange}
+              onSubmit={handleSearch}
+            />
           </div>
         </div>
       )}
