@@ -14,9 +14,8 @@ const SectionHeading = ({
   ...props
 }) => {
   const alignClasses = {
-    center: "text-left items-start md:text-center md:items-center",
+    center: "text-left items-start xl:text-center xl:items-center",
     left: "text-left items-start",
-    right: "text-left items-start md:text-right md:items-end",
   };
 
   return (
