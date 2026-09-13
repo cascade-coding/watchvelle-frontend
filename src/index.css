@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 @theme {
   /* Brand */
   --color-brand: #1b1b1b;
@@ -30,8 +29,6 @@
   --font-brand: "Cinzel", serif;
 }
 
-
-
 body {
   font-family: "Manrope", sans-serif;
   background-color: var(--color-background);
@@ -40,4 +37,36 @@ body {
 
 h1 {
   font-family: "Cinzel", serif;
+}
+
+/* Custom horizontal scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #e5e7eb transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  height: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #e5e7eb;
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #d1d5db;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

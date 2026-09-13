@@ -2,8 +2,15 @@ import React from "react";
 import SectionHeading from "../shared/SectionHeading";
 import Container from "../shared/Container";
 import ProductCard from "../shared/ProductCard";
+import { useConstants } from "../../store/useConstants";
 
 const FeaturedProducts = () => {
+  const getDemoProductCards = useConstants(
+    (state) => state.getDemoProductCards,
+  );
+
+  const cards = getDemoProductCards();
+
   return (
     <Container className="pt-16 md:pt-20 pb-[400px]">
       <SectionHeading
@@ -13,70 +20,19 @@ const FeaturedProducts = () => {
       />
 
       {/* Product cards wrapper */}
-      <div className="pt-10 w-full grid grid-cols-1 min-[475px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-9">
-        {/* Product card */}
 
-        <ProductCard
-          to="/watches/speedmaster-chronograph"
-          brand="Omega"
-          title="Speedmaster Chronograph Hand Wind Silver Dial Men's Watch"
-          price="$16,320.00"
-          originalPrice="$20,800.00"
-          primaryImage="/images/product-speedmaster-1.png"
-          secondaryImage="/images/product-speedmaster-2.png"
-        />
+      <div className="no-scrollbar pt-10 w-full flex gap-x-6 overflow-x-auto pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-4 lg:gap-y-9 lg:overflow-visible">
+        {/* Product cards */}
 
-        <ProductCard
-          to="/watches/speedmaster-chronograph"
-          brand="Omega"
-          title="Speedmaster Chronograph Hand Wind Silver Dial Men's Watch"
-          price="$16,320.00"
-          originalPrice="$20,800.00"
-          primaryImage="/images/product-speedmaster-1.png"
-          secondaryImage="/images/product-speedmaster-2.png"
-        />
+        {cards.map(({ id, ...product }) => (
+          <ProductCard
+            key={id}
+            className="min-w-[85%] sm:min-w-[45%] md:min-w-[32%] snap-start lg:min-w-0"
+            {...product}
+          />
+        ))}
 
-        <ProductCard
-          to="/watches/speedmaster-chronograph"
-          brand="Omega"
-          title="Speedmaster Chronograph Hand Wind Silver Dial Men's Watch"
-          price="$16,320.00"
-          originalPrice="$20,800.00"
-          primaryImage="/images/product-speedmaster-1.png"
-          secondaryImage="/images/product-speedmaster-2.png"
-        />
-
-        <ProductCard
-          to="/watches/speedmaster-chronograph"
-          brand="Omega"
-          title="Speedmaster Chronograph Hand Wind Silver Dial Men's Watch"
-          price="$16,320.00"
-          originalPrice="$20,800.00"
-          primaryImage="/images/product-speedmaster-1.png"
-          secondaryImage="/images/product-speedmaster-2.png"
-        />
-
-        <ProductCard
-          to="/watches/speedmaster-chronograph"
-          brand="Omega"
-          title="Speedmaster Chronograph Hand Wind Silver Dial Men's Watch"
-          price="$16,320.00"
-          originalPrice="$20,800.00"
-          primaryImage="/images/product-speedmaster-1.png"
-          secondaryImage="/images/product-speedmaster-2.png"
-        />
-
-        <ProductCard
-          to="/watches/speedmaster-chronograph"
-          brand="Omega"
-          title="Speedmaster Chronograph Hand Wind Silver Dial Men's Watch"
-          price="$16,320.00"
-          originalPrice="$20,800.00"
-          primaryImage="/images/product-speedmaster-1.png"
-          secondaryImage="/images/product-speedmaster-2.png"
-        />
-
-        {/* Product card */}
+        {/* Product cards */}
       </div>
     </Container>
   );
