@@ -14,7 +14,7 @@ const BestSellerProducts = () => {
 
   return (
     <div className="">
-      <Container className="pt-16 md:pt-20 pb-18 ">
+      <Container className="pt-16 md:pt-20 pb-18">
         <SectionHeading
           title="BEST SELLER WATCHES"
           subtitle="Discover the watches our customers love most."

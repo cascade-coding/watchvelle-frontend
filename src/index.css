@@ -70,3 +70,27 @@ h1 {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* slider */
+.my-slider .swiper-pagination {
+  position: relative !important;
+  bottom: auto !important;
+  left: 0 !important;
+  width: auto !important;
+  text-align: left !important;
+  margin-top: 20px; /* space between slides and pagination */
+}
+
+.my-slider .swiper-pagination-bullet {
+  background: #999 !important;
+  opacity: 1 !important;
+  width: 8px !important;
+  height: 8px !important;
+  transition: all 0.3s ease;
+}
+
+.my-slider .swiper-pagination-bullet-active {
+  background: #ffba08 !important;
+  width: 24px !important;
+  border-radius: 9999px !important;
+}
