@@ -78,11 +78,11 @@ h1 {
   left: 0 !important;
   width: auto !important;
   text-align: left !important;
-  margin-top: 20px; /* space between slides and pagination */
+  margin-top: 8px;
 }
 
 .my-slider .swiper-pagination-bullet {
-  background: #999 !important;
+  background: #ffffff !important;
   opacity: 1 !important;
   width: 8px !important;
   height: 8px !important;
@@ -90,7 +90,22 @@ h1 {
 }
 
 .my-slider .swiper-pagination-bullet-active {
-  background: #ffba08 !important;
-  width: 24px !important;
+  background: #ffffff !important;
+  width: 16px !important;
   border-radius: 9999px !important;
+}
+
+@media (min-width: 640px) {
+  .my-slider .swiper-pagination {
+    margin-top: 16px;
+  }
+
+  .my-slider .swiper-pagination-bullet {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  .my-slider .swiper-pagination-bullet-active {
+    width: 24px !important;
+  }
 }

@@ -28,7 +28,7 @@ const FeaturedProducts = () => {
           {cards.map(({ id, ...product }) => (
             <ProductCard
               key={id}
-              className="min-w-[85%] sm:min-w-[45%] md:min-w-[32%] snap-start lg:min-w-0"
+              className="min-w-[85%] min-[500px]:min-w-[45%] sm:min-w-[45%] md:min-w-[32%] snap-start lg:min-w-0"
               {...product}
             />
           ))}
