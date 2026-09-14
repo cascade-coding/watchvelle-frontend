@@ -13,13 +13,9 @@ const ProductCard = ({
   ...props
 }) => {
   return (
-    <Link
-      to={to}
-      className={cn("block w-full max-w-80 group", className)}
-      {...props}
-    >
+    <Link to={to} className={cn("block w-full max-w-80", className)} {...props}>
       {/* Images */}
-      <div className="relative">
+      <div className="relative group">
         <img
           src={primaryImage}
           alt={title}
