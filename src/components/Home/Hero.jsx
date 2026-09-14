@@ -18,7 +18,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/46"></div>
 
       {/* Content */}
-      <Container className="relative z-10 text-white pt-28">
+      <Container className="relative z-10 text-white pt-16 md:pt-20 lg:pt-22">
         <p className="text-sm md:text-base font-semibold md:font-bold uppercase tracking-[1.8px] mb-3">
           DISCOVER YOUR NEXT WATCH
         </p>
