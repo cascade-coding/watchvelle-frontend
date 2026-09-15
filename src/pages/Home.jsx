@@ -3,6 +3,7 @@ import Hero from "../components/Home/Hero";
 import FeaturedProducts from "../components/Home/FeaturedProducts";
 import BestSellerProducts from "../components/Home/BestSellerProducts";
 import ShopByBrands from "../components/Home/ShopByBrands";
+import WhyUs from "../components/Home/WhyUs";
 
 const Home = () => {
   return (
@@ -14,6 +15,10 @@ const Home = () => {
       <ShopByBrands />
 
       <BestSellerProducts />
+
+      <WhyUs />
+
+      <div className="py-80 bg-amber-200"></div>
     </div>
   );
 };
