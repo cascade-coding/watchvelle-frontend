@@ -176,6 +176,7 @@ export const useConstants = create((set, get) => ({
       secondaryImage: "/images/product-ville-2.png",
     },
   ],
+
   DEMO_SHOP_BY_BRAND_CARDS: [
     {
       id: rand(),
