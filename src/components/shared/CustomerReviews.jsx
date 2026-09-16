@@ -18,6 +18,7 @@ const CustomerReviews = () => {
           title="CUSTOMER REVIEWS"
           subtitle="Rated by 18,803 customers"
           subtitleClassName="text-brand"
+          align="left"
         />
 
         {/* Review cards wrapper */}
