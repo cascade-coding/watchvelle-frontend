@@ -20,8 +20,6 @@ const Home = () => {
       <WhyUs />
 
       <CustomerReviews />
-
-      <div className="py-80 bg-amber-200"></div>
     </div>
   );
 };

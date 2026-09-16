@@ -1,11 +1,9 @@
-import React from "react";
-
 const Instagram = () => {
   return (
     <>
       <svg
         className="size-6"
-        fill="currentColor"
+        fill="#FF7577"
         viewBox="0 0 24 24"
         aria-hidden="true"
       >
@@ -20,3 +18,5 @@ const Instagram = () => {
 };
 
 export default Instagram;
+
+
