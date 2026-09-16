@@ -8,7 +8,7 @@ const Pinterest = () => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clip-path="url(#clip0_151_2246)">
+        <g clipPath="url(#clip0_151_2246)">
           <path
             fillRule="evenodd"
             clipRule="evenodd"

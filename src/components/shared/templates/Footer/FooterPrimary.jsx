@@ -53,9 +53,9 @@ const FooterPrimary = () => {
 
           <div className="flex flex-1 flex-col gap-10 sm:flex-row sm:flex-wrap sm:gap-12 md:items-start xl:justify-between">
             {/* Links */}
-            <div className="flex flex-col sm:flex-row gap-10 sm:gap-12 xl:gap-20">
+            <div className="flex flex-col sm:flex-row gap-10 sm:gap-12 xl:gap-20 sm:min-w-[320px] sm:flex-1">
               {/* SHOP */}
-              <div className="w-full sm:w-auto">
+              <div className="w-full sm:w-auto xl:pr-16">
                 <FooterColumnTitle>SHOP</FooterColumnTitle>
                 <ul className="mt-6.5 space-y-3.5 text-sm">
                   <li>
@@ -95,7 +95,7 @@ const FooterPrimary = () => {
             {/* Links End */}
 
             {/* Newsletter + socials */}
-            <div className="w-full sm:w-105 lg:shrink-0">
+            <div className="w-full max-w-105 lg:shrink-0">
               <FooterColumnTitle>Stay in the Know</FooterColumnTitle>
 
               <form className="mt-6 w-full">
@@ -111,21 +111,22 @@ const FooterPrimary = () => {
                     placeholder="Your email address"
                     value={subscribeEmail}
                     onChange={(e) => onChangeSubscribeEmail(e.target.value)}
-                    className="block w-full h-12 outline-none placeholder:text-muted text-foreground text-sm px-3 border border-border rounded-md"
+                    className="block w-full min-w-0 h-12 outline-none placeholder:text-muted text-foreground text-sm px-3 border border-border rounded-md"
                   />
 
-                  <Button className="font-medium text-sm text-white border-transparent">
+                  <Button className="font-medium text-sm text-white border-transparent shrink-0 whitespace-nowrap">
                     Subscribe
                   </Button>
                 </div>
               </form>
+
               <ul className="flex flex-row gap-4 pt-4">
                 <li>
                   <a
                     href="#"
                     rel="noreferrer"
                     target="_blank"
-                    className="text-gray-700 transition hover:opacity-75"
+                    className="text-muted transition hover:opacity-75"
                   >
                     <span className="sr-only">Instagram</span>
                     <Instagram />
@@ -136,9 +137,9 @@ const FooterPrimary = () => {
                     href="#"
                     rel="noreferrer"
                     target="_blank"
-                    className="text-gray-700 transition hover:opacity-75"
+                    className="text-muted transition hover:opacity-75"
                   >
-                    <span className="sr-only">Instagram</span>
+                    <span className="sr-only">Pinterest</span>
                     <Pinterest />
                   </a>
                 </li>
@@ -147,9 +148,9 @@ const FooterPrimary = () => {
                     href="#"
                     rel="noreferrer"
                     target="_blank"
-                    className="text-gray-700 transition hover:opacity-75"
+                    className="text-muted transition hover:opacity-75"
                   >
-                    <span className="sr-only">Instagram</span>
+                    <span className="sr-only">X</span>
                     <XSocial />
                   </a>
                 </li>
@@ -159,7 +160,7 @@ const FooterPrimary = () => {
           </div>
         </div>
 
-        {/* Copywrite & Links */}
+        {/* Copyright & Links */}
         <div className="mt-8 border-t border-border pt-5 pb-10">
           <div className="flex flex-col gap-4 sm:gap-6 sm:flex-row sm:justify-between px-1">
             <p className="text-xs text-muted">© 2026 Watchvelle</p>
@@ -195,7 +196,7 @@ const FooterPrimary = () => {
           </div>
         </div>
 
-        {/* End Copywrite & Links */}
+        {/* End Copyright & Links */}
       </Container>
     </footer>
   );
