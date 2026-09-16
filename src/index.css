@@ -71,6 +71,16 @@ h1 {
   display: none;
 }
 
+@media (min-width: 768px) {
+  .scrollbar-hide-md {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-hide-md::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 /* slider */
 .my-slider .swiper-pagination {
   position: relative !important;
