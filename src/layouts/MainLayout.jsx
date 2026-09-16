@@ -1,12 +1,14 @@
 import React from "react";
 import Header from "../components/shared/templates/Header/Header";
+import FooterPrimary from "../components/shared/templates/Footer/FooterPrimary";
 
 const MainLayout = ({ children }) => {
   return (
-    <div>
+    <main>
       <Header />
       {children}
-    </div>
+      <FooterPrimary />
+    </main>
   );
 };
 

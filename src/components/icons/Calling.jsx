@@ -1,10 +1,10 @@
+import { cn } from "../../lib/utils";
 
-const Calling = () => {
+const Calling = ({ className = "" }) => {
   return (
     <>
       <svg
-        width="26"
-        height="26"
+        className={cn("w-6.5 h-6.5", className)}
         viewBox="0 0 26 26"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
