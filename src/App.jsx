@@ -2,6 +2,7 @@ import { Routes, Route, Link } from "react-router";
 import Brand from "./components/icons/Brand";
 import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
+import SingleProduct from "./pages/SingleProduct";
 
 function About() {
   return <h1 className="text-3xl">ℹ️ About Page</h1>;
@@ -20,7 +21,8 @@ function App() {
     <>
       <MainLayout>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />}  />
+          <Route path="/watches/:productId" element={<SingleProduct />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
