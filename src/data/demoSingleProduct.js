@@ -1,3 +1,5 @@
+import { rand } from "../lib/utils";
+
 export const DEMO_SINGLE_PRODUCT = {
   id: "speedmaster-chronograph",
   brand: "Omega",
@@ -16,11 +18,50 @@ export const DEMO_SINGLE_PRODUCT = {
     full: "Silver-tone stainless steel case and bracelet. Fixed silver-tone stainless steel with an inlaid black aluminium ring bezel. Black dial with silver-tone hands and index hour markers. Minute markers around the outer rim. Dial Type: Analog. Luminescent hands and markers. Chronograph — three sub-dials displaying: 60 second, 30 minute and 12 hour. Hand wind movement. Scratch resistant hesalite crystal. Pull / push crown. Solid case back. Round case shape. Case size: 42 mm. Case thickness: 13.58 mm. Band width: 20 mm. Deployment clasp. Water resistant at 50 meters / 165 feet. Functions: chronograph, hour, minute, second. Dive watch style. Watch label: Swiss Made. Omega Speedmaster Chronograph Hand Wind Silver Dial Men's Watch 310.30.42.50.01.001.",
   },
 
-  trustInfo: {
+  info: {
+    title: "Speedmaster Chronograph Hand Wind Black Dial Men's Watch",
+    retail: "$7,800.00",
+    price: "$6,750.00",
     authenticity: "Authenticity Guaranteed",
     warranty: "4 Year Warranty",
     returns: "30 Day Return Policy",
+    in_stock: true,
+    off: "13%",
+    brand_new: true,
+    message: "⚡ Limited quantity left at this price",
+    total_reviews: 124,
   },
+
+  images: [
+    {
+      id: rand(),
+      src: "/images/product-speedmaster-1.png",
+      alt: "Omega Speedmaster front view",
+    },
+    {
+      id: rand(),
+
+      src: "/images/product-speedmaster-2.png",
+      alt: "Omega Speedmaster side view",
+    },
+    {
+      id: rand(),
+
+      src: "/images/product-speedmaster-1.png",
+      alt: "Omega Speedmaster case back",
+    },
+    {
+      id: rand(),
+
+      src: "/images/product-speedmaster-2.png",
+      alt: "Omega Speedmaster on wrist",
+    },
+    {
+      id: rand(),
+      src: "/images/product-speedmaster-1.png",
+      alt: "Omega Speedmaster dial close-up",
+    },
+  ],
 
   case: {
     diameter: "42 mm",
