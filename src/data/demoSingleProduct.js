@@ -35,30 +35,30 @@ export const DEMO_SINGLE_PRODUCT = {
   images: [
     {
       id: rand(),
-      src: "/images/product-speedmaster-1.png",
+      src: "/images/products/omega-speedmaster-1.jpg",
       alt: "Omega Speedmaster front view",
     },
     {
       id: rand(),
 
-      src: "/images/product-speedmaster-2.png",
+      src: "/images/products/omega-speedmaster-2.jpg",
       alt: "Omega Speedmaster side view",
     },
     {
       id: rand(),
 
-      src: "/images/product-speedmaster-1.png",
+      src: "/images/products/omega-speedmaster-1.jpg",
       alt: "Omega Speedmaster case back",
     },
     {
       id: rand(),
 
-      src: "/images/product-speedmaster-2.png",
+      src: "/images/products/omega-speedmaster-2.jpg",
       alt: "Omega Speedmaster on wrist",
     },
     {
       id: rand(),
-      src: "/images/product-speedmaster-1.png",
+      src: "/images/products/omega-speedmaster-1.jpg",
       alt: "Omega Speedmaster dial close-up",
     },
   ],

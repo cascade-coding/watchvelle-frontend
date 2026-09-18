@@ -26,11 +26,13 @@ const ProductImageGallery = ({ images = [] }) => {
       >
         {images.map((img) => (
           <SwiperSlide key={img.id}>
-            <img
-              src={img.src}
-              alt={img.alt}
-              className="w-full h-full object-cover"
-            />
+            <div className="w-full h-full p-6 sm:p-8 md:p-10 lg:p-12 border border-border rounded-md md:rounded-[14px]">
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="w-full h-full object-contain"
+              />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -40,7 +42,7 @@ const ProductImageGallery = ({ images = [] }) => {
         {/* Prev button */}
         <button
           onClick={() => thumbsSwiperRef.current?.slidePrev()}
-          className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full border border-border hover:bg-gray-100 transition"
+          className="shrink-0 w-8 h-8 flex items-center justify-center hover:cursor-pointer"
           aria-label="Previous image"
         >
           <Previous />
@@ -54,13 +56,16 @@ const ProductImageGallery = ({ images = [] }) => {
             thumbsSwiperRef.current = swiper;
           }}
           watchSlidesProgress
-          spaceBetween={12}
-          slidesPerView={4}
+          spaceBetween={8}
+          slidesPerView={3}
+          breakpoints={{
+            640: { slidesPerView: 4, spaceBetween: 12 },
+          }}
           className="flex-1"
         >
           {images.map((img) => (
             <SwiperSlide key={img.id}>
-              <div className="cursor-pointer aspect-square rounded-md overflow-hidden border-2 border-transparent [.swiper-slide-thumb-active_&]:border-gold">
+              <div className="cursor-pointer aspect-square overflow-hidden rounded-md md:rounded-[14px] border border-border p-2 lg:p-1 in-[.swiper-slide-thumb-active]:border-gold">
                 <img
                   src={img.src}
                   alt={img.alt}
@@ -74,7 +79,7 @@ const ProductImageGallery = ({ images = [] }) => {
         {/* Next button */}
         <button
           onClick={() => thumbsSwiperRef.current?.slideNext()}
-          className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full border border-border hover:bg-gray-100 transition"
+          className="shrink-0 w-8 h-8 flex items-center justify-center hover:cursor-pointer"
           aria-label="Next image"
         >
           <Next />

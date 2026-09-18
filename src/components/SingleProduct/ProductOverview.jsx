@@ -9,16 +9,20 @@ const ProductOverview = () => {
   return (
     <div className="bg-white">
       <Container className="pt-5 md:pt-4 pb-7">
-        <div className="flex flex-col gap-8 lg:flex-row lg:gap-10 xl:gap-14">
+        <div className="flex flex-col gap-8 sm:flex-row lg:gap-10 xl:gap-14">
           {/* Image gallery */}
-          <div className="w-full max-w-[580px] lg:w-1/2 lg:shrink-0">
+          <div className="w-full max-w-[380px] lg:max-w-[420px] lg:w-1/2 lg:shrink-0">
             <ProductImageGallery images={product.images} />
           </div>
 
           {/* Product info */}
           <div className="w-full lg:flex-1 min-w-0">
-            <p>{product.brand}</p>
-            <p>{product.info.title}</p>
+            <p className="font-semibold text-sm tracking-[1.44px] uppercase text-gold">
+              {product.brand}
+            </p>
+            <p className="font-brand font-bold text-lg md:text-[28px] uppercase leading-snug text-brand pt-1.5">
+              {product.info.title}
+            </p>
             <p>{product.info.retail}</p>
             <p>{product.info.price}</p>
           </div>
