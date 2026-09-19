@@ -4,6 +4,9 @@ import { useConstants } from "../../store/useConstants";
 import Container from "../shared/Container";
 import Tag from "../icons/Tag";
 import Bag from "../icons/Bag";
+import Verified from "../icons/Verified";
+import Certificate from "../icons/Certificate";
+import Refund from "../icons/Refund";
 
 const ProductOverview = () => {
   const product = useConstants((state) => state.DEMO_SINGLE_PRODUCT);
@@ -11,7 +14,7 @@ const ProductOverview = () => {
   return (
     <div className="bg-white">
       <Container className="pt-5 md:pt-4 pb-7">
-        <div className="flex flex-col gap-8 sm:flex-row lg:gap-10 xl:gap-14">
+        <div className="flex flex-col gap-8 md:flex-row lg:gap-10 xl:gap-14">
           {/* Image gallery */}
           <div className="w-full max-w-[380px] lg:max-w-[420px] lg:w-1/2 lg:shrink-0">
             <ProductImageGallery images={product.images} />
@@ -94,9 +97,51 @@ const ProductOverview = () => {
                 {product.info.message}
               </p>
 
-              <button className="w-full h-12 md:h-14.5 flex gap-3.5 items-center justify-center bg-brand text-white rounded-md">
-                <Bag /> <span>Add To Bag</span>
+              <button className="group relative overflow-hidden w-full h-12 lg:h-14 flex gap-2.5 sm:gap-3.5 items-center justify-center bg-brand hover:cursor-pointer text-white rounded-md transition">
+                {/* Sliding flash */}
+                <span className="absolute top-0 left-0 h-full w-1/2 translate-x-[-250%] group-hover:translate-x-[350%] bg-linear-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg] transition-transform duration-700 ease-out pointer-events-none" />
+                <Bag className="relative z-10" />
+                <span className="relative z-10 font-medium lg:font-semibold text-base lg:text-lg tracking-[1.44px] uppercase">
+                  Add To Bag
+                </span>
               </button>
+
+              {/* trusts */}
+              <div className="relative grid grid-cols-1 lg:grid-cols-3 mt-1 lg:mt-3 border border-border select-none">
+                {/* Pattern background */}
+                <div
+                  className="absolute inset-0 opacity-20 bg-repeat"
+                  style={{
+                    backgroundImage: "url('/images/misc/checks-pattern.png')",
+                  }}
+                />
+
+                {/* White 80% overlay */}
+                <div className="absolute inset-0 bg-white/80" />
+
+                {/* Content */}
+                <div className="relative flex gap-2.5 items-center px-4 py-4">
+                  <Verified className="shrink-0" />
+                  <span className="font-semibold sm:font-bold text-sm md:text-[15px] tracking-[1.44px] leading-snug text-[#22345B]">
+                    Authenticity Guaranteed
+                  </span>
+                </div>
+
+                <div className="relative flex gap-2.5 items-center px-4 py-4 border-t lg:border-t-0 lg:border-l lg:border-r border-border">
+                  <Certificate className="shrink-0" />
+                  <span className="font-semibold sm:font-bold text-sm md:text-[15px] tracking-[1.44px] leading-snug text-[#22345B]">
+                    4 Year <br className="hidden lg:block" /> Warranty
+                  </span>
+                </div>
+
+                <div className="relative flex gap-2.5 items-center px-4 py-4 border-t lg:border-t-0 border-border">
+                  <Refund className="shrink-0" />
+                  <span className="font-semibold sm:font-bold text-sm md:text-[15px] tracking-[1.44px] leading-snug text-[#22345B]">
+                    30 Day Return Policy
+                  </span>
+                </div>
+              </div>
+              {/* trusts */}
             </div>
           </div>
         </div>
