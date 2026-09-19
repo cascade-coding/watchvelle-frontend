@@ -28,6 +28,7 @@ export const DEMO_SINGLE_PRODUCT = {
     in_stock: true,
     off: "13%",
     brand_new: true,
+    extra_costs: "incl. VAT / Free Shipping",
     message: "⚡ Limited quantity left at this price",
     total_reviews: 124,
   },

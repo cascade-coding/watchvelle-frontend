@@ -1,7 +1,9 @@
+import { Link } from "react-router";
 import ProductImageGallery from "./ProductImageGallery";
 import { useConstants } from "../../store/useConstants";
 import Container from "../shared/Container";
 import Tag from "../icons/Tag";
+import Bag from "../icons/Bag";
 
 const ProductOverview = () => {
   const product = useConstants((state) => state.DEMO_SINGLE_PRODUCT);
@@ -58,10 +60,44 @@ const ProductOverview = () => {
                   Code: {product.code}
                 </p>
               )}
+
+              <div className="text-brand pt-1.5">
+                <span>★★★★★</span> ·{" "}
+                <Link to="#" className="font-medium text-[13px] underline">
+                  124 reviews
+                </Link>
+              </div>
             </div>
 
-            <p>{product.info.retail}</p>
-            <p>{product.info.price}</p>
+            <div className="pt-4 flex flex-col gap-1.5">
+              <p className="font-medium text-sm sm:font-semibold sm:text-[15px] text-muted">
+                Retail{" "}
+                <span className="line-through">{product.info.retail}</span>
+              </p>
+
+              <p className="font-semibold sm:font-bold text-lg sm:text-xl md:text-[26px] text-brand">
+                {product.info.price}
+              </p>
+
+              <p className="font-normal sm:font-medium text-sm text-muted">
+                {product.info.extra_costs}
+              </p>
+
+              <p className="font-medium sm:font-semibold text-sm">
+                <span className="text-muted">Discover our Stores. </span>
+                <Link className="text-brand underline">Store finder</Link>
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-4 md:gap-6 pt-4 md:pt-6">
+              <p className="font-normal md:font-medium text-sm text-[#DC7065]">
+                {product.info.message}
+              </p>
+
+              <button className="w-full h-12 md:h-14.5 flex gap-3.5 items-center justify-center bg-brand text-white rounded-md">
+                <Bag /> <span>Add To Bag</span>
+              </button>
+            </div>
           </div>
         </div>
       </Container>
