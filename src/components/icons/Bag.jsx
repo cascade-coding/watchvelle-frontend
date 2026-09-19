@@ -1,6 +1,6 @@
 import { cn } from "../../lib/utils";
 
-const Bag = (className = "") => {
+const Bag = ({ className = "" }) => {
   return (
     <>
       <svg

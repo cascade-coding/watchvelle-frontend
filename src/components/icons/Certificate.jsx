@@ -1,6 +1,6 @@
 import { cn } from "../../lib/utils";
 
-const Certificate = (className = "") => {
+const Certificate = ({ className = "" }) => {
   return (
     <>
       <svg

@@ -1,17 +1,18 @@
 import { cn } from "../../lib/utils";
 
-const Previous = ({ className = "" }) => {
+const ArrowRight = ({ className = "" }) => {
   return (
     <>
       <svg
-        className={cn("size-6", className)}
-        viewBox="0 0 24 24"
+        className={cn("size-4", className)}
+        viewBox="0 0 16 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M15.75 4.5L8.25 12L15.75 19.5"
+          d="M5.5 3L10.5 8L5.5 13"
           stroke="#757575"
+          strokeOpacity="0.6"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -21,4 +22,4 @@ const Previous = ({ className = "" }) => {
   );
 };
 
-export default Previous;
+export default ArrowRight;

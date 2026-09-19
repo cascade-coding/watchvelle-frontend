@@ -4,7 +4,7 @@ import SearchIcon from "../../../icons/SearchIcon";
 import Close from "../../../icons/Close";
 
 const SearchForm = ({ inputRef, value, onChange, onSubmit }) => (
-  <form onSubmit={onSubmit} className="w-full md:max-w-100">
+  <form onSubmit={onSubmit} className="w-full md:max-w-80 lg:max-w-100 ml-auto">
     <div className="flex w-full h-12 px-4 items-center justify-between border-border border rounded-full">
       <input
         ref={inputRef}

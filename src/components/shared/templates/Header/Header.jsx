@@ -4,10 +4,10 @@ import HeaderSecondary from "./HeaderSecondary";
 
 const Header = () => {
   return (
-    <>
+    <div className="border-b border-border">
       <HeaderPrimary />
       <HeaderSecondary />
-    </>
+    </div>
   );
 };
 

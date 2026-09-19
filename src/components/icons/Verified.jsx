@@ -1,6 +1,6 @@
 import { cn } from "../../lib/utils";
 
-const Verified = (className = "") => {
+const Verified = ({ className = "" }) => {
   return (
     <>
       <svg

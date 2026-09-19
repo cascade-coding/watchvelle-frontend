@@ -1,6 +1,6 @@
 import { cn } from "../../lib/utils";
 
-const Tag = (className = "") => {
+const Tag = ({ className = "" }) => {
   return (
     <>
       <svg

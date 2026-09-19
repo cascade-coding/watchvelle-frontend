@@ -1,6 +1,6 @@
 import { cn } from "../../lib/utils";
 
-const Next = (className = "") => {
+const Next = ({ className = "" }) => {
   return (
     <>
       <svg

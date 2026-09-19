@@ -1,6 +1,6 @@
 import { cn } from "../../lib/utils";
 
-const Refund = (className = "") => {
+const Refund = ({ className = "" }) => {
   return (
     <>
       <svg
