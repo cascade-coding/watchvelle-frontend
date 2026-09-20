@@ -13,7 +13,7 @@ const ProductOverviewInfo = () => {
     <>
       <div className="w-full lg:flex-1 min-w-0">
         <p className="font-semibold text-sm tracking-[1.44px] uppercase text-gold">
-          {product.brand}
+          {product.item.brand}
         </p>
 
         <p className="font-brand font-bold text-lg md:text-xl lg:text-[28px] uppercase leading-snug text-brand pt-1.5">
@@ -21,7 +21,7 @@ const ProductOverviewInfo = () => {
         </p>
 
         <div className="select-none flex gap-x-3 gap-y-1.5 flex-wrap max-w-50 pt-3">
-          {product.info.in_stock ? (
+          {product.info.inStock ? (
             <div className="px-1.5 py-1 bg-[#C9F8D7] text-success font-bold text-[11px] tracking-[0.8px] uppercase rounded-sm">
               IN STOCK
             </div>
@@ -37,7 +37,7 @@ const ProductOverviewInfo = () => {
             </div>
           )}
 
-          {product.info.brand_new && (
+          {product.info.brandNew && (
             <div className="flex gap-1 items-center px-1.5 py-0">
               <Tag />
               <span className="px-1.5 py-1 inline-block text-[#327B8A] text-sm tracking-[0.8px] uppercase">
@@ -57,7 +57,7 @@ const ProductOverviewInfo = () => {
           <div className="text-brand pt-1.5">
             <span>★★★★★</span> ·{" "}
             <Link to="#" className="font-medium text-[13px] underline">
-              124 reviews
+              {product.info.totalReviews} reviews
             </Link>
           </div>
         </div>
@@ -72,7 +72,7 @@ const ProductOverviewInfo = () => {
           </p>
 
           <p className="font-normal sm:font-medium text-sm text-muted">
-            {product.info.extra_costs}
+            {product.info.extraCosts}
           </p>
 
           <p className="font-medium sm:font-semibold text-sm">

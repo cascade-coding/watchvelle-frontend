@@ -14,7 +14,7 @@ const ProductOverview = () => {
         {/* Breadcrumbs */}
         <div className="py-3 sm:py-5 border-b border-border/60">
           <ProductBreadcrumb
-            brand={product.brand}
+            brand={product.item.brand}
             collectionName={product.collectionName}
             productTitle={product.info.title}
           />

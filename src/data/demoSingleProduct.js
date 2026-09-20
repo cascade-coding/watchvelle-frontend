@@ -2,15 +2,18 @@ import { rand } from "../lib/utils";
 
 export const DEMO_SINGLE_PRODUCT = {
   id: "speedmaster-chronograph",
-  brand: "Omega",
-  collectionName: "Speedmaster",
-  gender: "Mens",
-  code: "310.30.42.50.01.001",
-  boxType: "Original Box",
-  watchLabel: "Swiss Made",
-  movement: "Hand Wind",
-  engine: "Omega Calibre 3861",
-  powerReserve: "50 Hours",
+
+  item: {
+    brand: "Omega",
+    collectionName: "Speedmaster",
+    gender: "Mens",
+    code: "310.30.42.50.01.001",
+    boxType: "Original Box",
+    watchLabel: "Swiss Made",
+    movement: "Hand Wind",
+    engine: "Omega Calibre 3861",
+    powerReserve: "50 Hours",
+  },
 
   description: {
     excerpt:
@@ -25,12 +28,12 @@ export const DEMO_SINGLE_PRODUCT = {
     authenticity: "Authenticity Guaranteed",
     warranty: "4 Year Warranty",
     returns: "30 Day Return Policy",
-    in_stock: true,
+    inStock: true,
     off: "13%",
-    brand_new: true,
-    extra_costs: "incl. VAT / Free Shipping",
+    brandNew: true,
+    extraCosts: "incl. VAT / Free Shipping",
     message: "⚡ Limited quantity left at this price",
-    total_reviews: 124,
+    totalReviews: 124,
   },
 
   images: [

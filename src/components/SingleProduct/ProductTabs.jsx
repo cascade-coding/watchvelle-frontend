@@ -25,7 +25,7 @@ const ProductTabs = () => {
                 id={`tab-${tab.id}`}
                 onClick={() => setActiveTab(tab.id)}
                 className={cn(
-                  "border-b-3 px-5.5 py-3.5 text-sm md:text-base font-semibold tracking-[1.4px] uppercase transition-colors -mb-0.75 hover:cursor-pointer",
+                  "border-b-3 px-5.5 py-3.5 text-[13px] md:text-base font-semibold tracking-[1.4px] uppercase transition-colors -mb-0.75 hover:cursor-pointer",
                   isActive
                     ? "border-brand text-brand bg-[#F5F5F5]"
                     : "border-transparent text-muted hover:text-brand",
@@ -43,16 +43,15 @@ const ProductTabs = () => {
         role="tabpanel"
         id={`panel-${activeTab}`}
         aria-labelledby={`tab-${activeTab}`}
-        className="mt-4"
       >
         {activeTab === "details" && (
-          <div className="text-gray-700">
+          <div className="">
             <ProductDetails />
           </div>
         )}
 
         {activeTab === "reviews" && (
-          <div className="text-gray-700">
+          <div className="">
             <p>No reviews yet.</p>
           </div>
         )}
