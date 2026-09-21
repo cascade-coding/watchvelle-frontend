@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ArrowDown from "../icons/ArrowDown";
 
 // Convert camelCase keys → "Title Case"
@@ -27,7 +27,6 @@ const ProductSpecTable = ({
 
   return (
     <div>
-      {/* Header — clickable trigger */}
       <button
         type="button"
         onClick={handleToggle}

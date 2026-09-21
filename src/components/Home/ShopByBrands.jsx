@@ -22,7 +22,7 @@ const ShopByBrands = () => {
           subtitleClassName="text-white"
         />
 
-        <div className="pt-8 lg:pt-10">
+        <div className="pt-6 md:pt-10">
           <Swiper
             modules={[Pagination]}
             pagination={{ clickable: true }}

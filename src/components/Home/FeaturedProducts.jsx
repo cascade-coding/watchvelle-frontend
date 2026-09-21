@@ -22,7 +22,7 @@ const FeaturedProducts = () => {
 
         {/* Product cards wrapper */}
 
-        <div className="no-scrollbar pt-10 w-full flex gap-x-6 overflow-x-auto pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-4 lg:gap-y-9 lg:overflow-visible">
+        <div className="no-scrollbar pt-5 sm:pt-8 w-full flex gap-x-6 overflow-x-auto pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-4 lg:gap-y-9 lg:overflow-visible">
           {/* Product cards */}
 
           {cards.map(({ id, ...product }) => (

@@ -26,7 +26,7 @@ const SectionHeading = ({
     >
       <h2
         className={cn(
-          "font-brand font-bold text-2xl sm:text-[28px] md:text-3xl lg:text-4xl tracking-[1.4px] text-foreground",
+          "font-brand font-bold text-[22px] sm:text-[28px] md:text-3xl lg:text-4xl tracking-[1.4px] text-foreground",
           titleClassName,
         )}
       >

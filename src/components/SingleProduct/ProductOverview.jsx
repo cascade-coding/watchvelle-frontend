@@ -4,13 +4,14 @@ import Container from "../shared/Container";
 import ProductOverviewInfo from "./ProductOverviewInfo";
 import ProductBreadcrumb from "./ProductBreadcrumb";
 import ProductTabs from "./ProductTabs";
+import RecommendationProducts from "./RecommendationProducts";
 
 const ProductOverview = () => {
   const product = useConstants((state) => state.DEMO_SINGLE_PRODUCT);
 
   return (
-    <div className="bg-white">
-      <Container className=" pb-7">
+    <div className="bg-white pb-7">
+      <Container className="">
         {/* Breadcrumbs */}
         <div className="py-3 sm:py-5 border-b border-border/60">
           <ProductBreadcrumb
@@ -36,6 +37,11 @@ const ProductOverview = () => {
           <ProductTabs />
         </div>
       </Container>
+
+      {/* Product Recommendation */}
+      <div className="bg-background pt-10 pb-8 sm:pt-14 sm:pb-12">
+        <RecommendationProducts />
+      </div>
     </div>
   );
 };
