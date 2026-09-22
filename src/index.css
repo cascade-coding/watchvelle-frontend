@@ -39,7 +39,7 @@ h1 {
   font-family: "Cinzel", serif;
 }
 
-/* Custom horizontal scrollbar */
+/* Custom scrollbar */
 .custom-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: #e5e7eb transparent;

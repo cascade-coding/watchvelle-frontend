@@ -1,11 +1,12 @@
+import { useState } from "react";
 import { cn } from "../../lib/utils";
 
 const TOTAL_STARS = 5;
 
-const FilledStar = () => (
+const FilledStar = ({ size = 22 }) => (
   <svg
-    width="11"
-    height="11"
+    width={size}
+    height={size}
     viewBox="0 0 11 11"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -21,10 +22,10 @@ const FilledStar = () => (
   </svg>
 );
 
-const EmptyStar = () => (
+const EmptyStar = ({ size = 22 }) => (
   <svg
-    width="11"
-    height="11"
+    width={size}
+    height={size}
     viewBox="0 0 11 11"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -59,23 +60,51 @@ const EmptyStar = () => (
   </svg>
 );
 
-const StarsLines = ({ rating = 5, className = "" }) => {
-  const filledCount = Math.max(0, Math.min(TOTAL_STARS, rating));
-  const emptyCount = TOTAL_STARS - filledCount;
+const RatingInput = ({
+  value = 0,
+  onChange,
+  size = 22,
+  className = "",
+  gap = "gap-1.5",
+  readOnly = false,
+}) => {
+  const [hovered, setHovered] = useState(0);
+
+  const displayValue = hovered || value;
 
   return (
     <div
-      className={cn("flex items-center gap-1.25", className)}
-      aria-label={`${filledCount} out of ${TOTAL_STARS} stars`}
+      className={cn("flex items-center", gap, className)}
+      role="radiogroup"
+      aria-label="Rating"
+      onMouseLeave={() => setHovered(0)}
     >
-      {Array.from({ length: filledCount }).map((_, i) => (
-        <FilledStar key={`filled-${i}`} />
-      ))}
-      {Array.from({ length: emptyCount }).map((_, i) => (
-        <EmptyStar key={`empty-${i}`} />
-      ))}
+      {Array.from({ length: TOTAL_STARS }).map((_, i) => {
+        const starNumber = i + 1;
+        const isFilled = starNumber <= displayValue;
+
+        return (
+          <button
+            key={starNumber}
+            type="button"
+            role="radio"
+            aria-checked={value === starNumber}
+            aria-label={`${starNumber} star${starNumber > 1 ? "s" : ""}`}
+            disabled={readOnly}
+            onMouseEnter={() => !readOnly && setHovered(starNumber)}
+            onClick={() => !readOnly && onChange?.(starNumber)}
+            className={cn(
+              "transition-transform duration-150",
+              !readOnly && "cursor-pointer hover:scale-110 active:scale-95",
+              readOnly && "cursor-default",
+            )}
+          >
+            {isFilled ? <FilledStar size={size} /> : <EmptyStar size={size} />}
+          </button>
+        );
+      })}
     </div>
   );
 };
 
-export default StarsLines;
+export default RatingInput;
