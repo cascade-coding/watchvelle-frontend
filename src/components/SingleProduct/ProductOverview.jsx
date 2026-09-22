@@ -5,6 +5,8 @@ import ProductOverviewInfo from "./ProductOverviewInfo";
 import ProductBreadcrumb from "./ProductBreadcrumb";
 import ProductTabs from "./ProductTabs";
 import RecommendationProducts from "./RecommendationProducts";
+import WhyUs from "../shared/WhyUs";
+import CustomerReviews from "../shared/CustomerReviews";
 
 const ProductOverview = () => {
   const product = useConstants((state) => state.DEMO_SINGLE_PRODUCT);
@@ -42,6 +44,12 @@ const ProductOverview = () => {
       <div className="bg-background pt-10 pb-8 sm:pt-14 sm:pb-12">
         <RecommendationProducts />
       </div>
+
+      {/* Why Us */}
+      <WhyUs v2 />
+
+      {/* Customer Reviews */}
+      <CustomerReviews />
     </div>
   );
 };

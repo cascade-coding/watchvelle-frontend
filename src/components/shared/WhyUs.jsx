@@ -1,12 +1,11 @@
-import React from "react";
-import Container from "../shared/Container";
+import Container from "./Container";
 
-const WhyUs = () => {
+const WhyUs = ({ v2 = false }) => {
   return (
-    <div className="relative h-116 sm:h-120 md:h-125 overflow-hidden">
+    <div className="relative h-116 sm:h-120 xl:h-125 overflow-hidden">
       {/* Background image */}
       <img
-        src="/images/misc/why-us-bg.png"
+        src={`/images/misc/${v2 ? "why-us-bg-2.png" : "why-us-bg.png"}`}
         alt=""
         className="absolute top-1/2 left-0 -translate-y-1/2 w-full h-150 sm:h-187 md:h-220 object-cover"
       />
