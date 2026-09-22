@@ -7,7 +7,7 @@ const ProductDescription = ({ description }) => {
 
   return (
     <div>
-      <p className="font-semibold md:font-bold text-base md:text-lg text-brand mb-2 md:mb-3">
+      <p className="font-semibold md:font-bold text-base md:text-lg tracking-[1px] text-brand mb-2 md:mb-3">
         Description
       </p>
 

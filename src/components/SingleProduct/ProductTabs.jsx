@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { cn } from "../../lib/utils";
 import ProductDetails from "./ProductDetails";
+import CustomersFeedbackSection from "./CustomersFeedbackSection";
 
 const TABS = [
   { id: "details", label: "Product Details" },
@@ -52,7 +53,7 @@ const ProductTabs = () => {
 
         {activeTab === "reviews" && (
           <div className="">
-            <p>No reviews yet.</p>
+            <CustomersFeedbackSection />
           </div>
         )}
       </div>
