@@ -1,4 +1,3 @@
-import React from "react";
 import WriteAReview from "./WriteAReview";
 import Feedbacks from "./Feedbacks";
 
@@ -11,7 +10,7 @@ const CustomersFeedbackSection = () => {
 
       <WriteAReview />
 
-      <div className="pt-11">
+      <div className="pt-8">
         <Feedbacks />
       </div>
     </div>
