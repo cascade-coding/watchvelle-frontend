@@ -1,5 +1,6 @@
 import React from "react";
 import WriteAReview from "./WriteAReview";
+import Feedbacks from "./Feedbacks";
 
 const CustomersFeedbackSection = () => {
   return (
@@ -10,7 +11,9 @@ const CustomersFeedbackSection = () => {
 
       <WriteAReview />
 
-      
+      <div className="pt-11">
+        <Feedbacks />
+      </div>
     </div>
   );
 };
