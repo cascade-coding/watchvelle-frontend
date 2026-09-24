@@ -9,7 +9,7 @@ const Shop = () => {
 
       {/* Filters and Products */}
       <div className="flex gap-8">
-        <aside className="hidden lg:block w-75 shrink-0 bg-[#FAFAFA]">
+        <aside className="hidden lg:block w-75 shrink-0 bg-[#FAFAFA] pt-15">
           <Filters />
         </aside>
 

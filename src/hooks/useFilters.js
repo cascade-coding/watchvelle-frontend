@@ -34,11 +34,28 @@ const WATCH_STYLES = [
 const MOVEMENTS = ["Automatic", "Eco-Drive", "Hand Wind", "Quartz"];
 const WATCH_FEATURES = [
   "Alarm",
+  "Alligator Leather",
   "Analog",
   "Annual Calendar",
+  "Ceramic",
   "Chronograph",
+  "Chronometer",
+  "Diamond",
   "Digital",
-  "Compass",
+  "Flyback",
+  "GMT",
+  "Gold",
+  "Leather",
+  "Month",
+  "Moon Phase",
+  "Perpetual",
+  "Platinum",
+  "Power Reserve Indicator",
+  "Rubber",
+  "Stainless Steel",
+  "Time Zone",
+  "Titanium",
+  "World Time",
 ];
 
 export const FILTER_OPTIONS = {
@@ -65,6 +82,14 @@ export const PARAM_KEYS = {
   watchFeatures: "feature",
 };
 
+const SEE_MORE_SECTIONS = [
+  PARAM_KEYS.brands,
+  PARAM_KEYS.genders,
+  PARAM_KEYS.watchStyles,
+  PARAM_KEYS.movements,
+  PARAM_KEYS.watchFeatures,
+];
+
 const buildRangeChip = (min, max, { prefix = "", suffix = "" } = {}) => {
   if (!min && !max) return null;
   if (min && max) return `${prefix}${min}${suffix} - ${prefix}${max}${suffix}`;
@@ -79,7 +104,6 @@ const readSingle = (params, key) => params.get(key) ?? "";
 const useFilters = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // Read all filter values from the URL
   const brands = readMulti(searchParams, PARAM_KEYS.brands);
   const priceRanges = readMulti(searchParams, PARAM_KEYS.priceRanges);
   const priceMin = readSingle(searchParams, PARAM_KEYS.priceMin);
@@ -92,8 +116,13 @@ const useFilters = () => {
   const movements = readMulti(searchParams, PARAM_KEYS.movements);
   const watchFeatures = readMulti(searchParams, PARAM_KEYS.watchFeatures);
 
-  const [showAllBrands, setShowAllBrands] = useState(false);
-  const [showAllFeatures, setShowAllFeatures] = useState(false);
+  const [expandedSections, setExpandedSections] = useState(() =>
+    SEE_MORE_SECTIONS.reduce((acc, key) => ({ ...acc, [key]: false }), {}),
+  );
+
+  const toggleExpanded = (key) => {
+    setExpandedSections((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
 
   const updateMultiParam = (key, value, shouldAdd) => {
     setSearchParams(
@@ -165,7 +194,6 @@ const useFilters = () => {
 
   const hasAnySelection = selectedChips.length > 0;
 
-  // Remove a single chip
   const removeFilter = (chip) => {
     if (!chip) return;
 
@@ -193,7 +221,6 @@ const useFilters = () => {
           }
         });
 
-        // clear min and max
         if (chip === priceChip) {
           next.delete(PARAM_KEYS.priceMin);
           next.delete(PARAM_KEYS.priceMax);
@@ -210,7 +237,6 @@ const useFilters = () => {
   };
 
   return {
-    // state values
     brands,
     priceRanges,
     priceMin,
@@ -222,22 +248,18 @@ const useFilters = () => {
     watchStyles,
     movements,
     watchFeatures,
-    showAllBrands,
-    showAllFeatures,
 
-    // setters
+    expandedSections,
+    toggleExpanded,
+
     setPriceMin,
     setPriceMax,
     setCaseMin,
     setCaseMax,
-    setShowAllBrands,
-    setShowAllFeatures,
 
-    // variables
     selectedChips,
     hasAnySelection,
 
-    // actions
     toggleItem,
     handleClearAll,
     removeFilter,
