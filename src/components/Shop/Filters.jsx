@@ -1,94 +1,85 @@
-import { useState } from "react";
+import useFilters, { FILTER_OPTIONS, PARAM_KEYS } from "../../hooks/useFilters";
 
-const BRANDS = [
-  "Omega",
-  "Rolex",
-  "Longines",
-  "Breitling",
-  "Tissot",
-  "Casio",
-  "Seiko",
-];
-
-const PRICE_RANGES = [
-  "< $100",
-  "$100-$300",
-  "$300-$500",
-  "$500-$1,000",
-  "$1,000-$5,000",
-  "$5,000+",
-];
-
-const CASE_DIAMETERS = ["< 30", "30-35", "35-40", "40-45", "45-50", "50+"];
-
-const GENDERS = ["Men's", "Women's", "Unisex"];
-
-const WATCH_STYLES = [
-  "Casual",
-  "Dive",
-  "Dress",
-  "Fashion",
-  "Luxury",
-  "Military",
-  "Pilot",
-];
-
-const MOVEMENTS = ["Automatic", "Eco-Drive", "Hand Wind", "Quartz"];
-
-const WATCH_FEATURES = [
-  "Alarm",
-  "Analog",
-  "Annual Calendar",
-  "Chronograph",
-  "Digital",
-  "Compass",
-];
+const {
+  BRANDS,
+  PRICE_RANGES,
+  CASE_DIAMETERS,
+  GENDERS,
+  WATCH_STYLES,
+  MOVEMENTS,
+  WATCH_FEATURES,
+} = FILTER_OPTIONS;
 
 const Filters = () => {
-  const [brands, setBrands] = useState([]);
-  const [priceRanges, setPriceRanges] = useState([]);
-  const [priceMin, setPriceMin] = useState("");
-  const [priceMax, setPriceMax] = useState("");
-  const [caseDiameters, setCaseDiameters] = useState([]);
-  const [caseMin, setCaseMin] = useState("");
-  const [caseMax, setCaseMax] = useState("");
-  const [genders, setGenders] = useState([]);
-  const [watchStyles, setWatchStyles] = useState([]);
-  const [movements, setMovements] = useState([]);
-  const [watchFeatures, setWatchFeatures] = useState([]);
+  const {
+    // state
+    brands,
+    priceRanges,
+    priceMin,
+    priceMax,
+    caseDiameters,
+    caseMin,
+    caseMax,
+    genders,
+    watchStyles,
+    movements,
+    watchFeatures,
+    showAllBrands,
+    showAllFeatures,
 
-  const [showAllBrands, setShowAllBrands] = useState(false);
-  const [showAllFeatures, setShowAllFeatures] = useState(false);
+    // setters
+    setPriceMin,
+    setPriceMax,
+    setCaseMin,
+    setCaseMax,
+    setShowAllBrands,
+    setShowAllFeatures,
 
-  // Generic toggle for multi-select arrays
-  const toggleItem = (setter, value) => {
-    setter((prev) =>
-      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value],
-    );
-  };
+    // derived
+    selectedChips,
+    hasAnySelection,
 
-  const handleClearAll = () => {
-    setBrands([]);
-    setPriceRanges([]);
-    setPriceMin("");
-    setPriceMax("");
-    setCaseDiameters([]);
-    setCaseMin("");
-    setCaseMax("");
-    setGenders([]);
-    setWatchStyles([]);
-    setMovements([]);
-    setWatchFeatures([]);
-  };
+    // actions
+    toggleItem,
+    handleClearAll,
+    removeFilter,
+
+    // ❌ REMOVED: PARAM_KEYS (now a named export, imported above)
+  } = useFilters();
 
   return (
     <div>
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <h2>Filters</h2>
-        <button type="button" onClick={handleClearAll}>
-          Clear All
-        </button>
+      <div>
+        <div className="flex items-center justify-between">
+          <h4 className="font-bold text-lg tracking-[1.6px] text-brand uppercase">
+            Filters
+          </h4>
+          <button
+            type="button"
+            onClick={handleClearAll}
+            className="h-9.5 px-5 border border-border rounded-full text-sm text-foreground hover:cursor-pointer hover:bg-gray-100 transition"
+          >
+            Clear All
+          </button>
+        </div>
+
+        {/* Selected filter chips */}
+        {hasAnySelection && (
+          <div className="flex flex-wrap gap-2 mt-4">
+            {selectedChips.map((chip) => (
+              <button
+                key={chip}
+                type="button"
+                onClick={() => removeFilter(chip)}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs border border-border rounded-full text-foreground hover:bg-gray-100 transition"
+              >
+                <span>{chip}</span>
+                <span className="text-muted">×</span>
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* BRAND */}
@@ -101,7 +92,7 @@ const Filters = () => {
                 <input
                   type="checkbox"
                   checked={brands.includes(brand)}
-                  onChange={() => toggleItem(setBrands, brand)}
+                  onChange={() => toggleItem(PARAM_KEYS.brands, brand)}
                 />
                 <span>{brand}</span>
               </label>
@@ -123,7 +114,7 @@ const Filters = () => {
                 <input
                   type="checkbox"
                   checked={priceRanges.includes(range)}
-                  onChange={() => toggleItem(setPriceRanges, range)}
+                  onChange={() => toggleItem(PARAM_KEYS.priceRanges, range)}
                 />
                 <span>{range}</span>
               </label>
@@ -163,7 +154,7 @@ const Filters = () => {
                 <input
                   type="checkbox"
                   checked={caseDiameters.includes(size)}
-                  onChange={() => toggleItem(setCaseDiameters, size)}
+                  onChange={() => toggleItem(PARAM_KEYS.caseDiameters, size)}
                 />
                 <span>{size}</span>
               </label>
@@ -203,7 +194,7 @@ const Filters = () => {
                 <input
                   type="checkbox"
                   checked={genders.includes(gender)}
-                  onChange={() => toggleItem(setGenders, gender)}
+                  onChange={() => toggleItem(PARAM_KEYS.genders, gender)}
                 />
                 <span>{gender}</span>
               </label>
@@ -222,7 +213,7 @@ const Filters = () => {
                 <input
                   type="checkbox"
                   checked={watchStyles.includes(style)}
-                  onChange={() => toggleItem(setWatchStyles, style)}
+                  onChange={() => toggleItem(PARAM_KEYS.watchStyles, style)}
                 />
                 <span>{style}</span>
               </label>
@@ -241,7 +232,7 @@ const Filters = () => {
                 <input
                   type="checkbox"
                   checked={movements.includes(movement)}
-                  onChange={() => toggleItem(setMovements, movement)}
+                  onChange={() => toggleItem(PARAM_KEYS.movements, movement)}
                 />
                 <span>{movement}</span>
               </label>
@@ -261,7 +252,9 @@ const Filters = () => {
                   <input
                     type="checkbox"
                     checked={watchFeatures.includes(feature)}
-                    onChange={() => toggleItem(setWatchFeatures, feature)}
+                    onChange={() =>
+                      toggleItem(PARAM_KEYS.watchFeatures, feature)
+                    }
                   />
                   <span>{feature}</span>
                 </label>
