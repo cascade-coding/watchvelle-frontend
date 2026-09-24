@@ -151,6 +151,7 @@ const Filters = () => {
         onToggle={(feature) => toggleItem(PARAM_KEYS.watchFeatures, feature)}
         isExpanded={expandedSections[PARAM_KEYS.watchFeatures]}
         onToggleExpand={() => toggleExpanded(PARAM_KEYS.watchFeatures)}
+        isLast
       />
     </div>
   );
