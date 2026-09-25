@@ -28,7 +28,7 @@ const ProductBreadcrumb = ({
 
         <ArrowRight />
 
-        <Link to="/" className={cn(LinkClassNames)}>
+        <Link to="/watches" className={cn(LinkClassNames)}>
           Watches
         </Link>
 

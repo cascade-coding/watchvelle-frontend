@@ -4,6 +4,7 @@ import {
   DEMO_FEATURED_PRODUCT_CARDS,
   DEMO_RECOMMENDATION_PRODUCT_CARDS,
   DEMO_SHOP_BY_BRAND_CARDS,
+  DEMO_SHOP_PRODUCT_CARDS,
   DEMO_SINGLE_PRODUCT,
 } from "../data";
 
@@ -15,6 +16,7 @@ export const useConstants = create((set, get) => ({
   DEMO_SHOP_BY_BRAND_CARDS,
   DEMO_SINGLE_PRODUCT,
   DEMO_RECOMMENDATION_PRODUCT_CARDS,
+  DEMO_SHOP_PRODUCT_CARDS,
 
   getDemoFeaturedProductCards: (cards = []) => {
     const { DEMO, DEMO_FEATURED_PRODUCT_CARDS } = get();
@@ -34,5 +36,10 @@ export const useConstants = create((set, get) => ({
   getRecommendationProductCards: (cards = []) => {
     const { DEMO, DEMO_RECOMMENDATION_PRODUCT_CARDS } = get();
     return DEMO ? DEMO_RECOMMENDATION_PRODUCT_CARDS : cards;
+  },
+
+  getShopProductCards: (cards = []) => {
+    const { DEMO, DEMO_SHOP_PRODUCT_CARDS } = get();
+    return DEMO ? DEMO_SHOP_PRODUCT_CARDS : cards;
   },
 }));
