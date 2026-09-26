@@ -17,6 +17,7 @@ const FilterRangeSection = ({
   inputType = "number",
   alwaysOpen = false,
   isLast = false,
+  paddingX = "pl-6 pr-7",
 }) => {
   const [isOpen, setIsOpen] = useState(true);
 
@@ -26,7 +27,7 @@ const FilterRangeSection = ({
   };
 
   return (
-    <div className={cn("pl-6 pr-7", !isLast && "border-b border-border")}>
+    <div className={cn(paddingX, !isLast && "border-b border-border")}>
       <button
         type="button"
         onClick={handleHeaderClick}

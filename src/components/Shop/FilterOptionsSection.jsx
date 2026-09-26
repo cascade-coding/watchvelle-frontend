@@ -18,6 +18,7 @@ const FilterOptionsSection = ({
   seeLessLabel = "See Less",
   alwaysOpen = false,
   isLast = false,
+  paddingX = "pl-6 pr-7",
 }) => {
   const [isOpen, setIsOpen] = useState(true);
 
@@ -30,7 +31,7 @@ const FilterOptionsSection = ({
   };
 
   return (
-    <div className={cn("pl-6 pr-7", !isLast && "border-b border-border")}>
+    <div className={cn(paddingX, !isLast && "border-b border-border")}>
       <button
         type="button"
         onClick={handleHeaderClick}
@@ -38,7 +39,7 @@ const FilterOptionsSection = ({
         aria-expanded={isOpen}
         className={cn(
           "flex items-center justify-between w-full py-4",
-          alwaysOpen ? "cursor-default" : "cursor-pointer",
+          alwaysOpen ? "cursor-default" : "cursor-pointer"
         )}
       >
         <h3 className="font-bold text-base tracking-[1.2px] text-brand uppercase">
