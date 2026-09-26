@@ -26,9 +26,9 @@ const BestSellerProducts = () => {
         <div className="no-scrollbar pt-5 sm:pt-8 w-full flex gap-x-6 overflow-x-auto pb-11 snap-x snap-mandatory lg:grid lg:grid-cols-4 lg:gap-y-9 lg:overflow-visible">
           {/* Product cards */}
 
-          {cards.map(({ id, ...product }) => (
+          {cards.map((product) => (
             <ProductCard
-              key={id}
+              key={product.id}
               className="min-w-[85%] min-[500px]:min-w-[45%] sm:min-w-[45%] md:min-w-[32%] snap-start lg:min-w-0"
               {...product}
             />

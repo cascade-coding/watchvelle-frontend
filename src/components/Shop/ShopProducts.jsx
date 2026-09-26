@@ -75,8 +75,12 @@ const ShopProducts = () => {
       {/* Products */}
       <div className="lg:pr-4 pt-6 sm:pt-6.5">
         <div className="grid grid-cols-1 min-[500px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-4.5 gap-y-7 pb-4">
-          {visibleCards.map(({ id, ...product }) => (
-            <ProductCard key={id} className="mx-auto w-full" {...product} />
+          {visibleCards.map((product) => (
+            <ProductCard
+              key={product.id}
+              className="mx-auto w-full"
+              {...product}
+            />
           ))}
         </div>
 

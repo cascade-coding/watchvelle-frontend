@@ -1,7 +1,7 @@
 import { rand } from "../lib/utils";
 
 export const DEMO_SINGLE_PRODUCT = {
-  id: "speedmaster-chronograph",
+  id: rand(),
 
   item: {
     brand: "Omega",

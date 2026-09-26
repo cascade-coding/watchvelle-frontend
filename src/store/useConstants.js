@@ -7,6 +7,7 @@ import {
   DEMO_SHOP_PRODUCT_CARDS,
   DEMO_SINGLE_PRODUCT,
 } from "../data";
+import { rand } from "../lib/utils";
 
 export const useConstants = create((set, get) => ({
   DEMO: true,
@@ -14,7 +15,10 @@ export const useConstants = create((set, get) => ({
   DEMO_FEATURED_PRODUCT_CARDS,
   DEMO_BEST_SELLER_PRODUCT_CARDS,
   DEMO_SHOP_BY_BRAND_CARDS,
-  DEMO_SINGLE_PRODUCT,
+  DEMO_SINGLE_PRODUCT: {
+    id: rand(),
+    ...DEMO_SINGLE_PRODUCT,
+  },
   DEMO_RECOMMENDATION_PRODUCT_CARDS,
   DEMO_SHOP_PRODUCT_CARDS,
 

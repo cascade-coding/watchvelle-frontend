@@ -17,6 +17,7 @@ const ProductOverviewInfo = () => {
       id: product.id,
       to: product.to ?? `/watches/${product.id}`,
       brand: product.item.brand,
+      code: product.item.code,
       title: product.info.title,
       price: product.info.price,
       originalPrice: product.info.retail,

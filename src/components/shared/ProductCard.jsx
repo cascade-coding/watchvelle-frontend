@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import { cn } from "../../lib/utils";
 
 const ProductCard = ({
+  id,
   to = "#",
   brand,
   title,
@@ -13,7 +14,11 @@ const ProductCard = ({
   ...props
 }) => {
   return (
-    <Link to={to} className={cn("block w-full max-w-80", className)} {...props}>
+    <Link
+      to={`/watches/${id}`}
+      className={cn("block w-full max-w-80", className)}
+      {...props}
+    >
       {/* Images */}
       <div className="relative group">
         <img

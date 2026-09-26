@@ -6,7 +6,6 @@ import Minus from "../components/icons/Minus";
 import Plus from "../components/icons/Plus";
 import Close from "../components/icons/Close";
 
-
 const Cart = () => {
   const {
     items,
@@ -42,7 +41,7 @@ const Cart = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8">
         {/* Cart items */}
-        <ul className="flex flex-col divide-y divide-border border-y border-border">
+        <ul className="bg-white px-5 pt-8 pb-5 flex flex-col divide-y divide-border border-y border-border ">
           {items.map((item) => (
             <li key={item.id} className="py-5 flex gap-4">
               {/* Image */}
@@ -59,26 +58,27 @@ const Cart = () => {
 
               {/* Details */}
               <div className="flex-1 min-w-0">
-                <p className="font-semibold text-xs uppercase tracking-[1.44px] text-gold">
-                  {item.brand}
-                </p>
+                <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
+                  <span className="font-semibold text-sm uppercase tracking-[1.44px] text-gold">
+                    {item.brand}
+                  </span>
+                  <span className="text-sm font-medium text-muted/70">
+                    {item.code}
+                  </span>
+                </div>
 
-                <Link
-                  to={item.to}
-                  className="block font-medium text-sm sm:text-base text-foreground line-clamp-2 hover:underline mt-0.5"
-                >
-                  {item.title}
-                </Link>
+                <div>
+                  <Link
+                    to={item.to}
+                    className="block font-medium text-sm sm:text-base text-foreground line-clamp-2 hover:underline mt-0.5"
+                  >
+                    {item.title}
+                  </Link>
 
-                <p className="font-bold text-base text-brand mt-2">
-                  {item.price}
-                </p>
-
-                {item.originalPrice && (
-                  <p className="text-xs text-muted line-through">
-                    {item.originalPrice}
+                  <p className="font-semibold text-base text-foreground mt-3">
+                    ${(parsePrice(item.price) * item.quantity).toFixed(2)}
                   </p>
-                )}
+                </div>
 
                 {/* Quantity controls + remove */}
                 <div className="flex items-center gap-4 mt-3">
@@ -113,13 +113,6 @@ const Cart = () => {
                     <Close />
                   </button>
                 </div>
-              </div>
-
-              {/* Line total */}
-              <div className="hidden sm:block shrink-0 text-right">
-                <p className="font-semibold text-sm text-foreground">
-                  ${(parsePrice(item.price) * item.quantity).toFixed(2)}
-                </p>
               </div>
             </li>
           ))}
