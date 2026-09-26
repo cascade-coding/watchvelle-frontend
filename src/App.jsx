@@ -4,6 +4,7 @@ import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 import SingleProduct from "./pages/SingleProduct";
 import Shop from "./pages/Shop";
+import Cart from "./pages/Cart";
 
 function About() {
   return <h1 className="text-3xl">ℹ️ About Page</h1>;
@@ -25,6 +26,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/watches" element={<Shop />} />
           <Route path="/watches/:productId" element={<SingleProduct />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />

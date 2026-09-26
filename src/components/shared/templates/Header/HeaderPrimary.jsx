@@ -5,8 +5,13 @@ import NavLinkPrimary from "./NavLinkPrimary";
 import NavLinkSecondary from "./NavLinkSecondary";
 import Container from "../../Container";
 import Bars from "../../../icons/Bars";
+import { useCart } from "../../../../store/useCart";
 
 const HeaderPrimary = () => {
+  const cartItemsCount = useCart((state) =>
+    state.items.reduce((sum, item) => sum + item.quantity, 0),
+  );
+
   return (
     <div className="">
       <input type="checkbox" id="sidebar-toggle" className="peer sr-only" />
@@ -36,7 +41,14 @@ const HeaderPrimary = () => {
                 <NavLinkPrimary to="/orders">Orders</NavLinkPrimary>
 
                 <NavLinkPrimary to="/cart">
-                  <Cart />
+                  <span className="relative inline-block">
+                    <Cart />
+                    {cartItemsCount > 0 && (
+                      <span className="absolute -top-1.5 -right-1.5 min-w-4.5 h-4.5 px-1 text-[10px] font-bold text-white bg-foreground rounded-full flex items-center justify-center">
+                        {cartItemsCount}
+                      </span>
+                    )}
+                  </span>
                 </NavLinkPrimary>
               </ul>
             </nav>

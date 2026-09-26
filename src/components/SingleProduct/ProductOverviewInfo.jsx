@@ -5,9 +5,25 @@ import Verified from "../icons/Verified";
 import Certificate from "../icons/Certificate";
 import Refund from "../icons/Refund";
 import { useConstants } from "../../store/useConstants";
+import useCartActions from "../../hooks/useCartActions";
 
 const ProductOverviewInfo = () => {
   const product = useConstants((state) => state.DEMO_SINGLE_PRODUCT);
+
+  const { addItem, isInCart } = useCartActions();
+
+  const handleAddToBag = () => {
+    addItem({
+      id: product.id,
+      to: product.to ?? `/watches/${product.id}`,
+      brand: product.item.brand,
+      title: product.info.title,
+      price: product.info.price,
+      originalPrice: product.info.retail,
+      primaryImage: product.images?.[0]?.src ?? "",
+      secondaryImage: product.images?.[1]?.src ?? "",
+    });
+  };
 
   return (
     <>
@@ -86,12 +102,15 @@ const ProductOverviewInfo = () => {
             {product.info.message}
           </p>
 
-          <button className="group relative overflow-hidden w-full h-12 lg:h-14 flex gap-2.5 sm:gap-3.5 items-center justify-center bg-brand hover:cursor-pointer text-white rounded-md transition">
+          <button
+            onClick={handleAddToBag}
+            className="group relative overflow-hidden w-full h-12 lg:h-14 flex gap-2.5 sm:gap-3.5 items-center justify-center bg-brand hover:cursor-pointer text-white rounded-md transition"
+          >
             {/* Sliding flash */}
             <span className="absolute top-0 left-0 h-full w-1/2 translate-x-[-250%] group-hover:translate-x-[350%] bg-linear-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg] transition-transform duration-700 ease-out pointer-events-none" />
             <Bag className="relative z-10" />
             <span className="relative z-10 font-medium lg:font-semibold text-base lg:text-lg tracking-[1.44px] uppercase">
-              Add To Bag
+              {isInCart(product.id) ? "Add Again" : "Add To Bag"}
             </span>
           </button>
 
